@@ -1,24 +1,54 @@
 from tkinter import *
+from tkinter import messagebox
 import math
 
-
 def térfogat():
-    a = float(mezo.get())
+    cucc=mezo.get()
+    if len(cucc) == 0:
+        messagebox.showerror('Error message box', "üres a mező ")
+    else:
+        pass  
+    cucc=int(cucc)
+
+    cucc=mezo1.get()
+    if  len(cucc) == 0:
+        messagebox.showerror('Error message box', "üres a mező ")
+    else:
+        pass  
+    cucc=int(cucc)
+
+    cucc=mezo5.get()
+    if  len(cucc) == 0:
+        messagebox.showerror('Error message box', "üres a mező ")
+    else:
+        pass
+    cucc=int(cucc)
+
+    a = float(mezo.get()) 
     b = float(mezo1.get())
     c = round(a**2*b*math.pi, 0)
     d = float(mezo5.get())
-    m = float(c/1000)
-    x = m-d
-    mezo2.delete(0, END)
-    mezo2.insert(0,""+str(m)+" liter")
-    if m > d:
-        mezo3.delete(0, END)
-        mezo3.insert(0,"Igen")
-        mezo4.insert(0,""+str(x)+" liter")
+    if a>0 and b>0 and d>0:
+        m = float(c/1000)
+        x = m-d
+        mezo2.delete(0, END)
+        mezo2.insert(0,""+str(m)+" liter")
+        if m > d:
+            mezo3.delete(0, END)
+            mezo3.insert(0,"Igen")
+            mezo4.insert(0,""+str(x)+" liter")
 
+        else:
+            mezo3.delete(0, END)
+            mezo3.insert(0,"Nem")
     else:
         mezo3.delete(0, END)
-        mezo3.insert(0,"Nem")
+        mezo3.insert(0,"Nem működik")
+        mezo4.delete(0, END)
+        mezo4.insert(0,"Nem működik")
+        mezo2.delete(0, END)
+        mezo2.insert(0,"Nem működik")
+    
 """
 def hord():
     a = float(mezo.get())
